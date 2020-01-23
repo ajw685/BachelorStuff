@@ -1,0 +1,39 @@
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+var dict = {};
+
+$.getJSON( "s23e12.json", function( json1 ) {
+    console.log( "JSON Data received, name is " + json1.jobName);
+    y = json1.results.items
+    //console.log(json1.results.items)
+    for (i = 0; i < y.length ; i++) {
+      //console.log(json1.results.items[i].alternatives.content)
+      x = json1.results.items[i]
+      console.log(i + " " + x.alternatives[0].content)
+      a = x.alternatives[0].content.toLowerCase();
+      if (dict[a] == null) {
+        dict[a] = 1
+        console.log(dict[a])
+      } else {
+        z = dict[a];
+        dict[a] = z + 1
+        console.log(dict[a])
+      }
+
+
+      
+
+
+    }
+    console.log(dict)
+    console.log(JSON.stringify(dict))
+});
+
+</script>
